@@ -1,5 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.Random;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class Tester {
     Random r;
@@ -48,5 +50,11 @@ public class Tester {
             }
             prevDateTime = pt;
         }
+    }
+
+    @Test
+    public void testAssert(){
+        int x = 2;
+        Assertions.assertEquals(x, 3);
     }
 }
