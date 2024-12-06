@@ -1,8 +1,8 @@
 public class App {
     Tester t;
     public App(){
+        MockPostFactory mpf = new MockPostFactory();
         t = new Tester();
-        t.testAssert();
     }
     public static void main(String[] args) throws Exception {
         new App();
