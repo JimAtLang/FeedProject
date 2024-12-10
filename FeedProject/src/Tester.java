@@ -30,6 +30,31 @@ public class Tester {
         return u;
     }
 
+    public void testMyFeed(Feed f, User u){
+        int followedNum = 0;
+        int relatedNum = 0;
+        int trendingNum = 0;
+        int unrelatedNum = 0;
+        for(Post p: f.getPosts()){
+            if (p.keywords()== String followed){
+                followedNum++;
+            }
+            if (p.keywords()== String related){
+                relatedNum++;
+            }
+            if (p.keywords()== String trending){
+                trendingNum++;
+            }
+            if (p.keywords()== String unrelated){
+                unrelatedNum++;
+            }
+        }
+        if (followedNum>relatedNum||relatedNum>trendingNum||trendingNum>unrelatedNum){
+            return true;
+        }
+
+    }
+
     public void TestChronologicalFeed(){
         System.out.println("testing chrono feed");
         User u = new User(generateUserName());
