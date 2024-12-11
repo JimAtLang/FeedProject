@@ -30,30 +30,31 @@ public class Tester {
         return u;
     }
 
+    private boolean isRelatedLastPost(Post p){
+        //for i in p.keywords(){ do something}
+    }
+
     public void testMyFeed(Feed f, User u){
         int followedNum = 0;
         int relatedNum = 0;
         int trendingNum = 0;
         int unrelatedNum = 0;
         for(Post p: f.getPosts()){
-            if (p.keywords()== String followed){
+            if (p.author() in u.getFollows()){
                 followedNum++;
             }
-            if (p.keywords()== String related){
+            if (isRelatedLastPost(p)){
                 relatedNum++;
             }
-            if (p.keywords()== String trending){
+            if (isTrending(p)){
                 trendingNum++;
             }
-            if (p.keywords()== String unrelated){
+            if (!isRelatedLastPost(p)){
                 unrelatedNum++;
             }
         }
-        if (followedNum>relatedNum||relatedNum>trendingNum||trendingNum>unrelatedNum){
-            return true;
-        }
-
-    }
+        assert(relatedNum>followedNum||followedNum>trendingNum||trendingNum>unrelatedNum);
+    } 
 
     public void TestChronologicalFeed(){
         System.out.println("testing chrono feed");
