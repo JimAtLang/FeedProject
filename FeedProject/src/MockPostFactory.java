@@ -15,63 +15,23 @@ public class MockPostFactory {
     private HashMap<String, ArrayList<String>> categories;
     private ArrayList<String[]> replace_text;
     private ArrayList<String[]> replace_title;
+    private DataReader dr;
     private Random random;
 
    public MockPostFactory(){
+        dr = new DataReader();
         random = new Random();
-        titles = readLines("titles.txt");
-        contentStrings = readLines("content.txt");
-        categories = readCategories();
+        titles = dr.readLines("titles.txt");
+        contentStrings = dr.readLines("content.txt");
+        categories = dr.readCategories();
         keywords = new ArrayList<String>(categories.keySet());
-        replace_text = readReplace("replace_text.txt");
-        replace_title = readReplace("replace_title.txt");
+        replace_text = dr.readReplace("replace_text.txt");
+        replace_title = dr.readReplace("replace_title.txt");
     }
 
     public Post makePost(int daysBeforeNow, int dayRange){
         return null;
     }
-
-    private ArrayList<String[]> readReplace(String fileName){
-        ArrayList<String[]> rtrn = new ArrayList<>();
-        ArrayList<String> lines = readLines(fileName);
-        for(String line:lines){
-            rtrn.add(line.split("-"));
-        }
-        return rtrn;
-    }
-
-    private HashMap<String, ArrayList<String>> readCategories(){
-        HashMap<String, ArrayList<String>> rtrn = new HashMap<>();
-        ArrayList<String> lines = readLines("categories.txt");
-        for(String line:lines){
-            String[] splitLine = line.split(":");
-            ArrayList<String> phraseList = new ArrayList<>();
-            for(String phrase:splitLine[1].split(",")){
-                phraseList.add(phrase);
-            }
-            rtrn.put(splitLine[0],phraseList);
-        }
-        return rtrn;
-    }
-
-    private ArrayList<String> readLines(String fileName){
-        ArrayList<String> rtrn = new ArrayList<>();
-        FileReader f;
-        try{
-            f = new FileReader(fileName);
-            BufferedReader br = new BufferedReader(f);
-            String line;
-            while((line = br.readLine()) != null){
-                rtrn.add(line);
-            }
-        } catch (FileNotFoundException e){
-            System.out.println(e);
-        } catch (IOException e){
-            System.out.println(e);
-        }
-        return rtrn;
-    }
-
 
     private LocalDateTime getRandomDate(int daysBeforeNow, int dayRange) {
 
