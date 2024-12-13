@@ -60,17 +60,20 @@ public class Tester {
     public void testCustomFeed() {
         int a = 0;
         int b = 0;
-        for (Post p : cf.getPosts()) {
+        for (Post p : customFeed.getPosts()) {
             if (a < 5) {
-                assert (p.author.indexOf(u.getFollows()) = -1);
+                assert (p.getAuthor().indexOf(u.getFollows()) == -1);
                 a++;
                 b++;
             } else if (b == 20) {
-                assert (!p.author.indexOf(u.getFollows()) = -1);
+                assert (!p.getAuthor().indexOf(u.getFollows()) == -1);
                 b = 0;
             } else {
-                assert (p.keywords.indexOf(u.getKeywords()) > 0);
+                assert (p.getKeywords().indexOf(u.getInterests()) > 0);
                 a = 0;
+            }
+            if(a==100){
+                return;
             }
         }
     }
