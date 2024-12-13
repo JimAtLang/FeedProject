@@ -30,17 +30,13 @@ public class Tester {
         return u;
     }
 
-    private boolean isRelatedLastPost(Post p){
-        //for i in p.keywords(){ do something}
-    }
-
     public void testMyFeed(Feed f, User u){
         int followedNum = 0;
         int relatedNum = 0;
         int trendingNum = 0;
         int unrelatedNum = 0;
         for(Post p: f.getPosts()){
-            if (p.author() in u.getFollows()){
+            if (p.getAuthor() in u.getFollows()){
                 followedNum++;
             }
             if (isRelatedLastPost(p)){

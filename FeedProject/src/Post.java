@@ -2,11 +2,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Post {
+    private User author;
     private String title;
     private String content;
     private int likes;
     private LocalDateTime postTime;
     private ArrayList<String> keywords;
+    public User getAuthor() {
+        return author;
+    }
+    public void setAuthor(User author) {
+        this.author = author;
+    }
     public ArrayList<String> getKeywords() {
         return keywords;
     }
@@ -58,6 +65,24 @@ public class Post {
     }
     public void setPostTime(LocalDateTime postTime) {
         this.postTime = postTime;
+    }
+
+    private boolean isRelatedLastPost(Post p, User u){
+        Post l = u.getLastPost()
+        for (String i: l.getKeywords()){
+            if (i in p.getKeywords()){
+                return true
+            }
+        }
+        return false
+    }
+
+    private boolean isTrending(Post p){
+        if (p.getPostTime()</*3 months*/||p.getLikes()>100){
+            return true
+        }
+        return false
+        
     }
 
 }
