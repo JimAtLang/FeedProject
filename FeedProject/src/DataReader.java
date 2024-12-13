@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataReader {
-    private ArrayList<String[]> readReplace(String fileName){
+    public ArrayList<String[]> readReplace(String fileName){
         ArrayList<String[]> rtrn = new ArrayList<>();
         ArrayList<String> lines = readLines(fileName);
         for(String line:lines){
@@ -15,9 +15,9 @@ public class DataReader {
         return rtrn;
     }
 
-    private HashMap<String, ArrayList<String>> readCategories(){
+    public HashMap<String, ArrayList<String>> readCategories(){
         HashMap<String, ArrayList<String>> rtrn = new HashMap<>();
-        ArrayList<String> lines = readLines("categories.txt");
+        ArrayList<String> lines = readLines("src/data/categories.txt");
         for(String line:lines){
             String[] splitLine = line.split(":");
             ArrayList<String> phraseList = new ArrayList<>();
@@ -29,7 +29,7 @@ public class DataReader {
         return rtrn;
     }
 
-    private ArrayList<String> readLines(String fileName){
+    public ArrayList<String> readLines(String fileName){
         ArrayList<String> rtrn = new ArrayList<>();
         FileReader f;
         try{
