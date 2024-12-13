@@ -1,20 +1,27 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Post {
     private String title;
     private String content;
     private int likes;
     private LocalDateTime postTime;
-    public Post(String title, String content, int likes) {
-        this.title = title;
-        this.content = content;
-        this.likes = likes;
+    private ArrayList<String> keywords;
+    public ArrayList<String> getKeywords() {
+        return keywords;
     }
     public Post(String title, String content, int likes, LocalDateTime postTime) {
         this.title = title;
         this.content = content;
         this.likes = likes;
         this.postTime = postTime;
+        this.keywords = new ArrayList<>();
+    }
+    public void addKeyword(String keyword){
+        this.keywords.add(keyword);
+    }
+    public boolean hasKeyword(String keyword){
+        return this.keywords.contains(keyword);
     }
     public String getTitle() {
         return title;
