@@ -1,3 +1,7 @@
 Productivity:time management,focus,planning
 Health and Fitness:workout,nutrition,home gym
 Travel:hidden gems,budget travel,destinations
+Sports:football, basketball, baseball, hockey
+Science:physics,chemistry,biology,astronomy,entomology
+History:ancient history,WW2,Byzantine Empire,Chinese history,African history
+Languages:Spanish,Han,Latin,Thai,Swedish,Russian
