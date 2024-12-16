@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class User {
@@ -28,7 +29,7 @@ public class User {
         return postHistory;
     }
     public void post(String title, String text){
-        Post post = new Post(title, text, 0);
+        Post post = new Post(title, text, 0, LocalDateTime.now());
         postHistory.add(post);
     }
     public void post(Post p){

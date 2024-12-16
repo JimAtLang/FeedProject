@@ -80,7 +80,7 @@ public class SocialMediaPostGenerator {
         int likes = random.nextInt(500);
         ArrayList<String> keywordsList = new ArrayList<>();
         Collections.addAll(keywordsList,keywordsArray);
-        Post newPost = new Post(title, text, likes);
+        Post newPost = new Post(title, text, likes, LocalDateTime.now());
         return newPost;
     }
 

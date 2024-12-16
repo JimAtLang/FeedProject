@@ -21,12 +21,12 @@ public class MockPostFactory {
    public MockPostFactory(){
         dr = new DataReader();
         random = new Random();
-        titles = dr.readLines("titles.txt");
-        contentStrings = dr.readLines("content.txt");
+        titles = dr.readLines("src/data/titles.txt");
+        contentStrings = dr.readLines("src/data/content.txt");
         categories = dr.readCategories();
         keywords = new ArrayList<String>(categories.keySet());
-        replace_text = dr.readReplace("replace_text.txt");
-        replace_title = dr.readReplace("replace_title.txt");
+        replace_text = dr.readReplace("src/data/replace_text.txt");
+        replace_title = dr.readReplace("src/data/replace_title.txt");
     }
 
     public Post makePost(int daysBeforeNow, int dayRange){
