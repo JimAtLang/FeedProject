@@ -36,16 +36,16 @@ public class Tester {
         int trendingNum = 0;
         int unrelatedNum = 0;
         for(Post p: f.getPosts()){
-            if (p.getAuthor() in u.getFollows()){
+            if (u.getFollows().contains(p.getAuthor())){
                 followedNum++;
             }
-            if (isRelatedLastPost(p)){
+            if (p.isRelatedLastPost(p,u)){
                 relatedNum++;
             }
-            if (isTrending(p)){
+            if (p.isTrending(p)){
                 trendingNum++;
             }
-            if (!isRelatedLastPost(p)){
+            if (!p.isRelatedLastPost(p,u)){
                 unrelatedNum++;
             }
         }
