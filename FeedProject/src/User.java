@@ -48,4 +48,24 @@ public class User {
     public ArrayList<User> getFollows() {
         return follows;
     }
-}
+
+    private Post getLastPost(){
+        Post lastPost = postHistory.get(0);
+        for(Post p:postHistory){
+            if(p.getPostTime().isAfter(lastPost.getPostTime())){
+                lastPost=p;
+            }
+        }
+        return lastPost;
+        }
+
+        public boolean isRelatedLastPost(Post p){
+            Post l = getLastPost();
+            for (String i:l.getKeywords()){
+                if (p.getKeywords().contains(i)){
+                    return true;
+                }
+            }
+            return false;
+        }
+    }

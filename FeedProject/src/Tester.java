@@ -39,13 +39,13 @@ public class Tester {
             if (u.getFollows().contains(p.getAuthor())){
                 followedNum++;
             }
-            if (p.isRelatedLastPost(p,u)){
+            if (u.isRelatedLastPost(p)){
                 relatedNum++;
             }
             if (p.isTrending(p)){
                 trendingNum++;
             }
-            if (!p.isRelatedLastPost(p,u)){
+            if (!u.isRelatedLastPost(p)){
                 unrelatedNum++;
             }
         }
