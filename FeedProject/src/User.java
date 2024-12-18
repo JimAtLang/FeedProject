@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class User {
@@ -27,8 +28,8 @@ public class User {
     public LinkedList<Post> getPostHistory() {
         return postHistory;
     }
-    public void post(String title, String text){
-        Post post = new Post(title, text, 0);
+    public void post(String title, String text, LocalDateTime postTime, String author, ArrayList<String> keywords){
+        Post post = new Post(title, text, 0, postTime, author, keywords);
         postHistory.add(post);
     }
     public void post(Post p){
@@ -48,4 +49,5 @@ public class User {
     public ArrayList<User> getFollows() {
         return follows;
     }
+    
 }

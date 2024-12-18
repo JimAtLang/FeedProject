@@ -57,24 +57,23 @@ public class Tester {
         }
     }
 
-    public void testCustomFeed() {
+    public void testCustomFeed(User u) {
+        FeedBuilder fb=new FeedBuilder();
         int a = 0;
         int b = 0;
-        for (Post p : customFeed.getPosts()) {
+        for (Post p : fb.customFeed(u).getPosts()) {
             if (a < 5) {
-                assert (p.getAuthor().indexOf(u.getFollows()) == -1);
+                assert(u.getFollows().contains(p.getAuthor()));
                 a++;
                 b++;
             } else if (b == 20) {
-                assert (!p.getAuthor().indexOf(u.getFollows()) == -1);
+                assert(!u.getfollows().contains(p.getAuthor()));
                 b = 0;
             } else {
-                assert (p.getKeywords().indexOf(u.getInterests()) > 0);
+                assert(u.getInterests().contains(p.getKeywords()));
                 a = 0;
             }
-            if(a==100){
-                return;
-            }
         }
+        /*needs feed input, also needs u.keywords, and p.keywords*/
     }
 }

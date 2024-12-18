@@ -1,20 +1,22 @@
 import java.time.LocalDateTime;
-
+import java.util.LinkedList;
+import java.util.ArrayList;
 public class Post {
     private String title;
     private String content;
     private int likes;
     private LocalDateTime postTime;
-    public Post(String title, String content, int likes) {
-        this.title = title;
-        this.content = content;
-        this.likes = likes;
-    }
-    public Post(String title, String content, int likes, LocalDateTime postTime) {
+    private String author;
+    private ArrayList<String> keywords;
+
+    
+    public Post(String title, String content, int likes, LocalDateTime postTime, String author, ArrayList<String> keywords) {
         this.title = title;
         this.content = content;
         this.likes = likes;
         this.postTime = postTime;
+        this.author=author;
+        this.keywords=keywords;
     }
     public String getTitle() {
         return title;
@@ -36,6 +38,18 @@ public class Post {
     }
     public void addLike(){
         this.likes++;
+    }
+    private void setAuthor(String author){
+        this.author=author;
+    }
+    public String getAuthor(){
+        return author;
+    }
+    private void setKeywords(ArrayList keywords){
+        this.keywords=keywords;
+    }
+    public ArrayList<String> getKeywords(){
+        return keywords;
     }
 
     public void printPost(){
