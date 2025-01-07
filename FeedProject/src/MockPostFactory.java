@@ -36,7 +36,13 @@ public class MockPostFactory {
         LocalDateTime postTime = getRandomDate(daysBeforeNow, dayRange);
         ArrayList<String> keywords = new ArrayList<>();
         ArrayList<String> categoryStrings = new ArrayList<String>(categories.keySet());
-        
+        String mainCategory = categoryStrings.get(random.nextInt(categoryStrings.size()));
+        keywords.add(mainCategory);
+        for(String subcategory:categories.get(mainCategory)){
+            if(random.nextInt(100)<30){
+                keywords.add(subcategory);
+            }
+        }
         String title = "";
         for(String keyword:keywords){
             title += keyword;
