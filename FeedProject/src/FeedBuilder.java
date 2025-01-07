@@ -14,4 +14,16 @@ public class FeedBuilder {
         f.addAllPosts(list);
         return f;
     }
+
+    public Feed myFeed(User user){
+        ArrayList<User> followedUsers = user.getFollows();
+        Feed f = new Feed();
+        ArrayList<Post> posts = new ArrayList<>();
+        for (User followedUser:followedUsers){
+        posts.add(followedUser.getLastPost());
+        }
+        // TODO: Add trending, related, and unrelated
+        f.addAllPosts(posts);
+        return null;
+    }
 }

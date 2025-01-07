@@ -48,4 +48,14 @@ public class User {
     public ArrayList<User> getFollows() {
         return follows;
     }
+
+    public Post getLastPost(){
+        Post lastPost = postHistory.get(0);
+        for(Post p:postHistory){
+            if(p.getPostTime().isAfter(lastPost.getPostTime())){
+                lastPost=p;
+            }
+        }
+        return lastPost;
+        }
 }

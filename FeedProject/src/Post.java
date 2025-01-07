@@ -67,18 +67,7 @@ public class Post {
         this.postTime = postTime;
     }
 
-    private Post getLastPost(User u){
-        Post lastPost = postHistory.get(index:0);
-        for(Post p:postHistory){
-            if(p.getPostTime().isAfter(lasPost.getPostTime())){
-                lastPost=p;
-            }
-        }
-        return lastPost
-        }
-    }
-
-    public boolean isRelatedLastPost(Post p, User u){
+    public boolean isRelatedLastPost(User u, Post p){
         Post l = u.getLastPost();
         for (String i:l.getKeywords()){
             if (p.getKeywords().contains(i)){
