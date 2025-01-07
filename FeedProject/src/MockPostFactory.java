@@ -17,6 +17,7 @@ public class MockPostFactory {
     private ArrayList<String[]> replace_title;
     private DataReader dr;
     private Random random;
+    private MockUserFactory muf;
 
    public MockPostFactory(){
         dr = new DataReader();
@@ -27,10 +28,22 @@ public class MockPostFactory {
         keywords = new ArrayList<String>(categories.keySet());
         replace_text = dr.readReplace("src/data/replace_text.txt");
         replace_title = dr.readReplace("src/data/replace_title.txt");
+        muf = new MockUserFactory();
     }
 
     public Post makePost(int daysBeforeNow, int dayRange){
-        return null;
+        User author = muf.generateUser();
+        LocalDateTime postTime = getRandomDate(daysBeforeNow, dayRange);
+        ArrayList<String> keywords = new ArrayList<>();
+        ArrayList<String> categoryStrings = new ArrayList<String>(categories.keySet());
+        
+        String title = "";
+        for(String keyword:keywords){
+            title += keyword;
+        }
+        int likes = random.nextInt(1000);
+
+        return new Post(title, "content", likes, postTime, author, keywords);
     }
 
     private LocalDateTime getRandomDate(int daysBeforeNow, int dayRange) {

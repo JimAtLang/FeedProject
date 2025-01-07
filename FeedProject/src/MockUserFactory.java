@@ -11,7 +11,7 @@ public class MockUserFactory {
         keywords = new ArrayList<String>(dr.readCategories().keySet());
     }
 
-    public User generateeUser(){
+    public User generateUser(){
         ArrayList<String> interests = new ArrayList<>();
         for(String keyword:keywords){
             if(r.nextInt(100)<50){

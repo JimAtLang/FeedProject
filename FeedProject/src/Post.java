@@ -8,12 +8,21 @@ public class Post {
     private LocalDateTime postTime;
     private ArrayList<String> keywords;
     private User author;
+    public Post(String title, String content, int likes, LocalDateTime postTime, User author, ArrayList<String> keywords) {
+        this.title = title;
+        this.content = content;
+        this.likes = likes;
+        this.postTime = postTime;
+        this.author = author;
+        this.keywords = keywords;
+    }
     public Post(String title, String content, int likes, LocalDateTime postTime, User author) {
         this.title = title;
         this.content = content;
         this.likes = likes;
         this.postTime = postTime;
         this.author = author;
+        this.keywords = new ArrayList<>();
     }
     public Post(String title, String content, int likes, LocalDateTime postTime) {
         this.title = title;
