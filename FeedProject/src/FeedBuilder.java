@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class FeedBuilder {
 
@@ -18,10 +19,25 @@ public class FeedBuilder {
     }
 
     public Feed customFeed(User user) {
-        Feed cf = new Feed();
+        int a = 0;
+        int b = 0;
+        Random r = new Random();
+        Feed customFeed = new Feed();
         ArrayList<Post> list = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             //Create loop to add the posts for a=5, b=20 etc
+            //User u.follows, get a random post from followed user, first showing unssen posts, then viewed posts
+            if (a < 5) {
+                int randomFollow = r.nextInt(0, user.getFollows().size());
+                int randomPost = r.nextInt(0, user.getPostHistory().size());
+                list.add(user.getFollows().get(randomFollow).getPostHistory().get(randomPost));
+                a++;
+                b++;
+            } else if (b == 20) {
+                //get a completely random post
+            }
         }
+        customFeed.setPosts(list);
+        return customFeed;
     }
 }
