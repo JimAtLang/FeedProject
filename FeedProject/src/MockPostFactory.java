@@ -32,11 +32,17 @@ public class MockPostFactory {
     }
 
     public ArrayList<Post> makePosts(int number){
+        int numUsers = (int)Math.sqrt(number);
+        ArrayList<User> users = new ArrayList<>();
+        for(int i=0; i< numUsers; i ++){
+            users.add(muf.generateUser());
+        }
         ArrayList<Post> posts = new ArrayList<>();
         for(int i=0; i < number; i++){
             int daysBeforeNow = 50;
             int dayRange = random.nextInt(daysBeforeNow);
-            posts.add(makePost(daysBeforeNow, dayRange));
+            User author = users.get(random.nextInt(users.size()));
+            posts.add(makePost(author, daysBeforeNow, dayRange));
         }
         return posts;
     }
