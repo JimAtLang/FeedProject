@@ -10,18 +10,12 @@ public class Post {
     private LocalDateTime postTime;
     private String keywords;
 
-    public Post(String title, String content, int likes, String author, String keywords) {
+    public Post(String title, String content, int likes, String author, String keywords, LocalDateTime postTime) {
         this.title = title;
         this.content = content;
         this.likes = likes;
         this.author = author;
         this.keywords = keywords;
-    }
-
-    public Post(String title, String content, int likes, LocalDateTime postTime) {
-        this.title = title;
-        this.content = content;
-        this.likes = likes;
         this.postTime = postTime;
     }
 

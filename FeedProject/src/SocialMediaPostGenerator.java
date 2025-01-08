@@ -68,7 +68,7 @@ public class SocialMediaPostGenerator {
                 .replace("{concept}", "self-care");
 
         // Generate random text
-        String text = TEXTS[random.nextInt(TEXTS.length)]
+        String content = TEXTS[random.nextInt(TEXTS.length)]
                 .replace("{number}", "5")
                 .replace("{action}", "stay organized")
                 .replace("{benefit}", "mental clarity")
@@ -80,7 +80,7 @@ public class SocialMediaPostGenerator {
         int likes = random.nextInt(500);
         ArrayList<String> keywordsList = new ArrayList<>();
         Collections.addAll(keywordsList,keywordsArray);
-        Post newPost = new Post(title, text, likes);
+        Post newPost = new Post(title, content, likes, author, keywords, postTime);
         return newPost;
     }
 
