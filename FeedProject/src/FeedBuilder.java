@@ -23,21 +23,21 @@ public class FeedBuilder {
         int b = 0;
         Random r = new Random();
         Feed customFeed = new Feed();
-        ArrayList<Post> list = new ArrayList<>();
+        ArrayList<Post> list2 = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             //Create loop to add the posts for a=5, b=20 etc
             //User u.follows, get a random post from followed user, first showing unssen posts, then viewed posts
             if (a < 5) {
                 int randomFollow = r.nextInt(0, user.getFollows().size());
                 int randomPost = r.nextInt(0, user.getPostHistory().size());
-                list.add(user.getFollows().get(randomFollow).getPostHistory().get(randomPost));
+                list2.add(user.getFollows().get(randomFollow).getPostHistory().get(randomPost));
                 a++;
                 b++;
             } else if (b == 20) {
                 //get a completely random post
             }
         }
-        customFeed.setPosts(list);
+        customFeed.addAllPosts(list2);
         return customFeed;
     }
 }

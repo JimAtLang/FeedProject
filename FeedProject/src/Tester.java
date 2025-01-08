@@ -2,12 +2,7 @@
 import java.rmi.server.UID;
 import java.time.LocalDateTime;
 import java.util.Random;
-<<<<<<< HEAD
 import javax.swing.UIClientPropertyKey;
-=======
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
->>>>>>> 2fb67207bfeb639c01c67a2a33a8caeacfdf408c
 
 public class Tester {
 
@@ -62,29 +57,22 @@ public class Tester {
         }
     }
 
-<<<<<<< HEAD
-    public void testCustomFeed() {
+    public void testCustomFeed(User user) {
         int a = 0;
         int b = 0;
         for (Post p : customFeed.getPosts()) {
             if (a < 5) {
-                assert (u.getFollows().contains(p.getAuthor()));
+                assert (user.getFollows().contains(p.getAuthor()));
                 a++;
                 b++;
             } else if (b == 20) {
-                assert (!u.getfollows().contains(p.getAuthor()));
+                assert (!user.getFollows().contains(p.getAuthor()));
                 b = 0;
             } else {
-                assert (p.getKeywords().indexOf(u.getInterests()) > 0);
+                assert (user.getInterests().contains(p.getKeywords()));
                 a = 0;
             }
         }
         /*needs feed input, also needs u.keywords, and p.keywords*/
-=======
-    @Test
-    public void testAssert(){
-        int x = 2;
-        Assertions.assertEquals(x, 3);
->>>>>>> 2fb67207bfeb639c01c67a2a33a8caeacfdf408c
     }
 }
