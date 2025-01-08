@@ -72,6 +72,11 @@ public class Post {
         System.out.println("Title: " + this.title);
         System.out.println("Content:" + this.content);
         System.out.println("Likes: " + this.likes);
+        System.out.println("author:" + this.author.getUserName());
+        System.out.println("postTime: " + this.postTime);
+        for(String keyword:this.keywords){
+            System.out.println(keyword);
+        }
 
     }
     public LocalDateTime getPostTime() {

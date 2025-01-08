@@ -31,6 +31,36 @@ public class MockPostFactory {
         muf = new MockUserFactory();
     }
 
+    public ArrayList<Post> makePosts(int number){
+        ArrayList<Post> posts = new ArrayList<>();
+        for(int i=0; i < number; i++){
+            int daysBeforeNow = 50;
+            int dayRange = random.nextInt(daysBeforeNow);
+            posts.add(makePost(daysBeforeNow, dayRange));
+        }
+        return posts;
+    }
+
+    public Post makePost(User author, int daysBeforeNow, int dayRange){
+        LocalDateTime postTime = getRandomDate(daysBeforeNow, dayRange);
+        ArrayList<String> keywords = new ArrayList<>();
+        ArrayList<String> categoryStrings = new ArrayList<String>(categories.keySet());
+        String mainCategory = categoryStrings.get(random.nextInt(categoryStrings.size()));
+        keywords.add(mainCategory);
+        for(String subcategory:categories.get(mainCategory)){
+            if(random.nextInt(100)<30){
+                keywords.add(subcategory);
+            }
+        }
+        String title = "";
+        for(String keyword:keywords){
+            title += keyword;
+        }
+        int likes = random.nextInt(1000);
+
+        return new Post(title, "content", likes, postTime, author, keywords);
+    }
+
     public Post makePost(int daysBeforeNow, int dayRange){
         User author = muf.generateUser();
         LocalDateTime postTime = getRandomDate(daysBeforeNow, dayRange);
@@ -56,7 +86,6 @@ public class MockPostFactory {
 
         // Get the current date and time
         LocalDateTime startTime = LocalDateTime.now().minusDays(daysBeforeNow);
-        
         // Generate a random number of seconds from now to five days from now
         long secondsInDayRange = dayRange * 24 * 60 * 60; // 5 days in seconds
         long randomSeconds = random.nextLong(0, secondsInDayRange);
