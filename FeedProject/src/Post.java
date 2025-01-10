@@ -47,11 +47,12 @@ public class Post {
         this.likes++;
     }
 
-    public String getAuthor(String author) {
+    public String getAuthor() {
         return author;
     }
 
-    private void setAuthor() {
+    private void setAuthor(String author) {
+
         this.author = author;
     }
 
@@ -59,7 +60,7 @@ public class Post {
         return keywords;
     }
 
-    private void setKeywords() {
+    private void setKeywords(String keywords) {
         this.keywords = keywords;
     }
 
