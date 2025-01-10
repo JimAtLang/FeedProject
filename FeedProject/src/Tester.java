@@ -1,8 +1,6 @@
 
-import java.rmi.server.UID;
 import java.time.LocalDateTime;
 import java.util.Random;
-import javax.swing.UIClientPropertyKey;
 
 public class Tester {
 
@@ -57,19 +55,19 @@ public class Tester {
         }
     }
 
-    public void testCustomFeed() {
+    public void testCustomFeed(User user, Feed customFeed) {
         int a = 0;
         int b = 0;
         for (Post p : customFeed.getPosts()) {
             if (a < 5) {
-                assert (u.getFollows().contains(p.getAuthor()));
+                assert (user.getFollows().contains(p.getAuthor()));
                 a++;
                 b++;
             } else if (b == 20) {
-                assert (!u.getfollows().contains(p.getAuthor()));
+                assert (!user.getFollows().contains(p.getAuthor()));
                 b = 0;
             } else {
-                assert (p.getKeywords().indexOf(u.getInterests()) > 0);
+                assert (p.getKeywords().contains(user.getInterests()));
                 a = 0;
             }
         }
