@@ -1,5 +1,6 @@
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Post {
 
@@ -8,7 +9,7 @@ public class Post {
     private String author;
     private int likes;
     private LocalDateTime postTime;
-    private String keywords;
+    private ArrayList<String> keywords;
 
     public Post(String title, String content, int likes, String author, String keywords) {
         this.title = title;
@@ -23,6 +24,22 @@ public class Post {
         this.content = content;
         this.likes = likes;
         this.postTime = postTime;
+        this.keywords = new ArrayList<>();
+    }
+    public User getAuthor() {
+        return author;
+    }
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+    public ArrayList<String> getKeywords() {
+        return keywords;
+    }
+    public void addKeyword(String keyword){
+        this.keywords.add(keyword);
+    }
+    public boolean hasKeyword(String keyword){
+        return this.keywords.contains(keyword);
     }
 
     public String getTitle() {

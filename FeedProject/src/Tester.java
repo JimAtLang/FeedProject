@@ -2,7 +2,12 @@
 import java.rmi.server.UID;
 import java.time.LocalDateTime;
 import java.util.Random;
+<<<<<<< HEAD
 import javax.swing.UIClientPropertyKey;
+=======
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+>>>>>>> TestEnvironment
 
 public class Tester {
 
@@ -57,6 +62,7 @@ public class Tester {
         }
     }
 
+<<<<<<< HEAD
     public void testCustomFeed() {
         int a = 0;
         int b = 0;
@@ -74,5 +80,11 @@ public class Tester {
             }
         }
         /*needs feed input, also needs u.keywords, and p.keywords*/
+=======
+    @Test
+    public void testAssert(){
+        int x = 2;
+        Assertions.assertEquals(x, 3);
+>>>>>>> TestEnvironment
     }
 }
