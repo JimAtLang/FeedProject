@@ -38,10 +38,11 @@ public class DataReader {
     }
 
     public ArrayList<String> readLines(String fileName){
+        String filePath = path + fileName;
         ArrayList<String> rtrn = new ArrayList<>();
         FileReader f;
         try{
-            f = new FileReader(fileName);
+            f = new FileReader(filePath);
             BufferedReader br = new BufferedReader(f);
             String line;
             while((line = br.readLine()) != null){
