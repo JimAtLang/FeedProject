@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,6 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataReader {
+    private String path;
+    public DataReader(){
+        File directory = new File("./");
+        this.path = directory.getAbsolutePath();
+        this.path = this.path.substring(0,this.path.length()-1);
+        System.out.println("created DataReader at path " + path);
+    }
     public ArrayList<String[]> readReplace(String fileName){
         ArrayList<String[]> rtrn = new ArrayList<>();
         ArrayList<String> lines = readLines(fileName);
