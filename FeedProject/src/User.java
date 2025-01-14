@@ -1,13 +1,12 @@
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class User {
 
     private String userName;
     private ArrayList<User> follows;
-    private LinkedList<Post> postHistory;
+    private ArrayList<Post> postHistory;
     private ArrayList<String> interests;
 
     public ArrayList<String> getInterests() {
@@ -21,12 +20,12 @@ public class User {
     public User(String userName) {
         this.userName = userName;
         this.follows = new ArrayList<>();
-        this.postHistory = new LinkedList<>();
+        this.postHistory = new ArrayList<>();
         this.interests = new ArrayList<>();
 
     }
 
-    public LinkedList<Post> getPostHistory() {
+    public ArrayList<Post> getPostHistory() {
         return postHistory;
     }
 

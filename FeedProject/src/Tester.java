@@ -58,7 +58,7 @@ public class Tester {
     public void testCustomFeed(User user, Feed customFeed) {
         int a = 0;
         int b = 0;
-        for (Post p : customFeed.getPosts()) {
+        for (Post p : fb.customFeed(u).getPosts()) {
             if (a < 5) {
                 assert (user.getFollows().contains(p.getAuthor()));
                 a++;

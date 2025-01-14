@@ -24,7 +24,7 @@ public class FeedBuilder {
         Random r = new Random();
         Feed customFeed = new Feed();
         ArrayList<Post> list = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        for (User followedUser : user.getFollows()) {
             //Create loop to add the posts for a=5, b=20 etc
             //User u.follows, get a random post from followed user, first showing unssen posts, then viewed posts
             if (a < 5) {
