@@ -25,7 +25,7 @@ public class DataReader {
 
     public HashMap<String, ArrayList<String>> readCategories(){
         HashMap<String, ArrayList<String>> rtrn = new HashMap<>();
-        ArrayList<String> lines = readLines("src/data/categories.txt");
+        ArrayList<String> lines = readLines("FeedProject/src/data/categories.txt");
         for(String line:lines){
             String[] splitLine = line.split(":");
             ArrayList<String> phraseList = new ArrayList<>();
