@@ -9,7 +9,7 @@ public class App {
 
         MockPostFactory mpf = new MockPostFactory();
         ArrayList<Post> cfPosts = mpf.makePosts(20);
-        for (Post post : posts) {
+        for (Post post : cfPosts) {
             post.printPost();
         }
     }
