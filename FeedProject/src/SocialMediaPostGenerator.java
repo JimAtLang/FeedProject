@@ -8,38 +8,42 @@ import java.util.Map;
 import java.util.Random;
 
 public class SocialMediaPostGenerator {
+
     Random random = new Random();
-    public SocialMediaPostGenerator(){
+
+    public SocialMediaPostGenerator() {
         int numberOfPosts = 10000; // Set this to 1000 for full generation
         generatePosts(numberOfPosts);
     }
 
     // Define templates and categories
     private static final String[] TITLES = {
-            "5 Tips for {action} to Boost {benefit}!",
-            "The Ultimate Guide to {topic}",
-            "How to {goal} in {timeframe}",
-            "Top 10 {items} for {outcome}",
-            "Why {concept} is Important for {benefit}"
+        "5 Tips for {action} to Boost {benefit}!",
+        "The Ultimate Guide to {topic}",
+        "How to {goal} in {timeframe}",
+        "Top 10 {items} for {outcome}",
+        "Why {concept} is Important for {benefit}"
     };
 
-    private static final Map<String, String[]> CATEGORIES = new HashMap<>() {{
-        put("Productivity", new String[]{"time management", "focus", "planning"});
-        put("Health and Fitness", new String[]{"workout", "nutrition", "home gym"});
-        put("Travel", new String[]{"hidden gems", "budget travel", "destinations"});
-    }};
+    private static final Map<String, String[]> CATEGORIES = new HashMap<>() {
+        {
+            put("Productivity", new String[]{"time management", "focus", "planning"});
+            put("Health and Fitness", new String[]{"workout", "nutrition", "home gym"});
+            put("Travel", new String[]{"hidden gems", "budget travel", "destinations"});
+        }
+    };
 
     private static final String[] TEXTS = {
-            "Feeling overwhelmed? Try these {number} simple tips to {action} and improve {benefit}.",
-            "Learn how to {goal} with our ultimate guide. From {step1} to {step2}, we cover it all!",
-            "Staying motivated can be tough, but with these {items}, you'll be on track in no time."
+        "Feeling overwhelmed? Try these {number} simple tips to {action} and improve {benefit}.",
+        "Learn how to {goal} with our ultimate guide. From {step1} to {step2}, we cover it all!",
+        "Staying motivated can be tough, but with these {items}, you'll be on track in no time."
     };
 
     public LocalDateTime getRandomDateInNextFiveDays() {
 
         // Get the current date and time
         LocalDateTime now = LocalDateTime.now();
-        
+
         // Generate a random number of seconds from now to five days from now
         long secondsInFiveDays = 5 * 24 * 60 * 60; // 5 days in seconds
         long randomSeconds = random.nextLong(0, secondsInFiveDays);
@@ -48,7 +52,7 @@ public class SocialMediaPostGenerator {
         return now.plusSeconds(randomSeconds);
     }
 
-    public Post generatePost(){
+    public Post generatePost() {
         List<String> categoryKeys = new ArrayList<>(CATEGORIES.keySet());
         String category = categoryKeys.get(random.nextInt(categoryKeys.size()));
 
@@ -79,19 +83,19 @@ public class SocialMediaPostGenerator {
 
         int likes = random.nextInt(500);
         ArrayList<String> keywordsList = new ArrayList<>();
-        Collections.addAll(keywordsList,keywordsArray);
+        Collections.addAll(keywordsList, keywordsArray);
         Post newPost = new Post(title, content, likes, author, keywords, postTime);
         return newPost;
     }
 
-    public Post generatePostWithDate(LocalDateTime date){
+    public Post generatePostWithDate(LocalDateTime date) {
         Post newPost = generatePost();
         newPost.setPostTime(date);
         return newPost;
     }
 
     public ArrayList<Post> generatePosts(int count) {
-        
+
         ArrayList<Post> posts = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             // Select random category
@@ -99,6 +103,5 @@ public class SocialMediaPostGenerator {
         }
         return posts;
     }
-
 
 }

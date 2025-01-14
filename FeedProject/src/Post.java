@@ -18,8 +18,6 @@ public class Post {
         this.author = author;
         this.keywords = keywords;
         this.postTime = postTime;
-        this.author = author;
-        this.keywords = keywords;
     }
 
     public String getTitle() {
@@ -71,6 +69,11 @@ public class Post {
         System.out.println("Title: " + this.title);
         System.out.println("Content:" + this.content);
         System.out.println("Likes: " + this.likes);
+        System.out.println("author:" + this.author.getUserName());
+        System.out.println("postTime: " + this.postTime);
+        for (String keyword : this.keywords) {
+            System.out.println(keyword);
+        }
 
     }
 
