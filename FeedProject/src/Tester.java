@@ -1,7 +1,5 @@
 import java.time.LocalDateTime;
 import java.util.Random;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 public class Tester {
     Random r;
@@ -41,13 +39,13 @@ public class Tester {
             if (u.getFollows().contains(p.getAuthor())){
                 followedNum++;
             }
-            if (p.isRelatedLastPost(p,u)){
+            if (p.isRelatedLastPost(u,p)){
                 relatedNum++;
             }
             if (p.isTrending(p)){
                 trendingNum++;
             }
-            if (!p.isRelatedLastPost(p,u)){
+            if (!p.isRelatedLastPost(u,p)){
                 unrelatedNum++;
             }
         }
@@ -73,14 +71,4 @@ public class Tester {
             prevDateTime = pt;
         }
     }
-<<<<<<< HEAD
 }
-=======
-
-    @Test
-    public void testAssert(){
-        int x = 2;
-        Assertions.assertEquals(x, 3);
-    }
-}
->>>>>>> 53709826bd313d029e5e8eb08541a58cf1622788
