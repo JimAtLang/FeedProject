@@ -2,11 +2,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Post {
+    private User author;
     private String title;
     private String content;
     private int likes;
     private LocalDateTime postTime;
     private ArrayList<String> keywords;
+<<<<<<< HEAD
     private User author;
     public Post(String title, String content, int likes, LocalDateTime postTime, User author, ArrayList<String> keywords) {
         this.title = title;
@@ -22,6 +24,24 @@ public class Post {
         this.likes = likes;
         this.postTime = postTime;
         this.author = author;
+=======
+    public User getAuthor() {
+        return author;
+    }
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+    public ArrayList<String> getKeywords() {
+        return keywords;
+    }
+    public void setKeywords(ArrayList<String> keywords) {
+        this.keywords = keywords;
+    }
+    public Post(String title, String content, int likes) {
+        this.title = title;
+        this.content = content;
+        this.likes = likes;
+>>>>>>> d1060a6807919695a176d30646e44bf3fe4be04d
         this.keywords = new ArrayList<>();
     }
     public Post(String title, String content, int likes, LocalDateTime postTime) {
@@ -84,6 +104,24 @@ public class Post {
     }
     public void setPostTime(LocalDateTime postTime) {
         this.postTime = postTime;
+    }
+
+    public boolean isRelatedLastPost(User u, Post p){
+        Post l = u.getLastPost();
+        for (String i:l.getKeywords()){
+            if (p.getKeywords().contains(i)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isTrending(Post p){
+        if ((p.getLikes()>100)||LocalDateTime.now().minusDays(62).isBefore(p.getPostTime())){
+            return true;
+        }
+        return false;
+        
     }
 
 }

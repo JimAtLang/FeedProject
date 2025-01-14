@@ -32,6 +32,28 @@ public class Tester {
         return u;
     }
 
+    public void testMyFeed(Feed f, User u){
+        int followedNum = 0;
+        int relatedNum = 0;
+        int trendingNum = 0;
+        int unrelatedNum = 0;
+        for(Post p: f.getPosts()){
+            if (u.getFollows().contains(p.getAuthor())){
+                followedNum++;
+            }
+            if (p.isRelatedLastPost(p,u)){
+                relatedNum++;
+            }
+            if (p.isTrending(p)){
+                trendingNum++;
+            }
+            if (!p.isRelatedLastPost(p,u)){
+                unrelatedNum++;
+            }
+        }
+        assert(relatedNum>followedNum||followedNum>trendingNum||trendingNum>unrelatedNum);
+    } 
+
     public void TestChronologicalFeed(){
         System.out.println("testing chrono feed");
         User u = new User(generateUserName());
@@ -51,6 +73,7 @@ public class Tester {
             prevDateTime = pt;
         }
     }
+<<<<<<< HEAD
 
     @Test
     public void testAssert(){
@@ -58,3 +81,6 @@ public class Tester {
         Assertions.assertEquals(x, 3);
     }
 }
+=======
+}
+>>>>>>> d1060a6807919695a176d30646e44bf3fe4be04d
