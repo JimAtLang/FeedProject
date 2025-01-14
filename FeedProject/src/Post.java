@@ -8,6 +8,29 @@ public class Post {
     private int likes;
     private LocalDateTime postTime;
     private ArrayList<String> keywords;
+    public Post(String title, String content, int likes, LocalDateTime postTime, User author, ArrayList<String> keywords) {
+        this.title = title;
+        this.content = content;
+        this.likes = likes;
+        this.postTime = postTime;
+        this.author = author;
+        this.keywords = keywords;
+    }
+    public Post(String title, String content, int likes, LocalDateTime postTime, User author) {
+        this.title = title;
+        this.content = content;
+        this.likes = likes;
+        this.postTime = postTime;
+        this.author = author;
+        this.keywords = new ArrayList<>();
+    }
+    public Post(String title, String content, int likes, LocalDateTime postTime) {
+        this.title = title;
+        this.content = content;
+        this.likes = likes;
+        this.postTime = postTime;
+        this.keywords = new ArrayList<>();
+    }
     public User getAuthor() {
         return author;
     }
@@ -17,20 +40,11 @@ public class Post {
     public ArrayList<String> getKeywords() {
         return keywords;
     }
-    public void setKeywords(ArrayList<String> keywords) {
-        this.keywords = keywords;
+    public void addKeyword(String keyword){
+        this.keywords.add(keyword);
     }
-    public Post(String title, String content, int likes) {
-        this.title = title;
-        this.content = content;
-        this.likes = likes;
-        this.keywords = new ArrayList<>();
-    }
-    public Post(String title, String content, int likes, LocalDateTime postTime) {
-        this.title = title;
-        this.content = content;
-        this.likes = likes;
-        this.postTime = postTime;
+    public boolean hasKeyword(String keyword){
+        return this.keywords.contains(keyword);
     }
     public String getTitle() {
         return title;
@@ -58,6 +72,11 @@ public class Post {
         System.out.println("Title: " + this.title);
         System.out.println("Content:" + this.content);
         System.out.println("Likes: " + this.likes);
+        System.out.println("author:" + this.author.getUserName());
+        System.out.println("postTime: " + this.postTime);
+        for(String keyword:this.keywords){
+            System.out.println(keyword);
+        }
 
     }
     public LocalDateTime getPostTime() {

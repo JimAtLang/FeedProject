@@ -27,7 +27,7 @@ public class FeedBuilder {
                 posts.add(p);
             }
         }
-        // TODO: Add trending, related, and unrelated
+        // TODO: Add related and unrelated
         f.addAllPosts(posts);
         return null;
     }
