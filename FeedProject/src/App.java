@@ -4,7 +4,7 @@ public class App {
     Tester t;
     public App(){
         MockPostFactory mpf = new MockPostFactory();
-        ArrayList<Post> posts = mpf.makePosts(5);
+        ArrayList<Post> posts = mpf.makePosts(7);
         for(Post post:posts){
             post.printPost();
         }

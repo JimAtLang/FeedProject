@@ -32,24 +32,16 @@ public class Tester {
 
     public void testMyFeed(Feed f, User u){
         int followedNum = 0;
-        int relatedNum = 0;
         int trendingNum = 0;
-        int unrelatedNum = 0;
         for(Post p: f.getPosts()){
             if (u.getFollows().contains(p.getAuthor())){
                 followedNum++;
             }
-            if (p.isRelatedLastPost(u,p)){
-                relatedNum++;
-            }
             if (p.isTrending(p)){
                 trendingNum++;
             }
-            if (!p.isRelatedLastPost(u,p)){
-                unrelatedNum++;
-            }
         }
-        assert(relatedNum>followedNum||followedNum>trendingNum||trendingNum>unrelatedNum);
+        assert(followedNum+trendingNum>=50);
     } 
 
     public void TestChronologicalFeed(){

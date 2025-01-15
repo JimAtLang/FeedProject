@@ -23,7 +23,7 @@ public class FeedBuilder {
             posts.add(followedUser.getLastPost());
         }
         for (Post p:allPosts){
-            if (p.isTrending(p)){
+            if (p.isTrending(p)||!posts.contains(p)){
                 posts.add(p);
             }
         }

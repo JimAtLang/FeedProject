@@ -86,15 +86,6 @@ public class Post {
         this.postTime = postTime;
     }
 
-    public boolean isRelatedLastPost(User u, Post p){
-        Post l = u.getLastPost();
-        for (String i:l.getKeywords()){
-            if (p.getKeywords().contains(i)){
-                return true;
-            }
-        }
-        return false;
-    }
 
     public boolean isTrending(Post p){
         if ((p.getLikes()>100)||LocalDateTime.now().minusDays(62).isBefore(p.getPostTime())){
