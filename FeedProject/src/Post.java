@@ -8,8 +8,6 @@ public class Post {
     private int likes;
     private LocalDateTime postTime;
     private ArrayList<String> keywords;
-<<<<<<< HEAD
-    private User author;
     public Post(String title, String content, int likes, LocalDateTime postTime, User author, ArrayList<String> keywords) {
         this.title = title;
         this.content = content;
@@ -24,24 +22,6 @@ public class Post {
         this.likes = likes;
         this.postTime = postTime;
         this.author = author;
-=======
-    public User getAuthor() {
-        return author;
-    }
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-    public ArrayList<String> getKeywords() {
-        return keywords;
-    }
-    public void setKeywords(ArrayList<String> keywords) {
-        this.keywords = keywords;
-    }
-    public Post(String title, String content, int likes) {
-        this.title = title;
-        this.content = content;
-        this.likes = likes;
->>>>>>> d1060a6807919695a176d30646e44bf3fe4be04d
         this.keywords = new ArrayList<>();
     }
     public Post(String title, String content, int likes, LocalDateTime postTime) {
