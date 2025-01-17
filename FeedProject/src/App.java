@@ -11,7 +11,6 @@ public class App {
         ArrayList<Post> cfPosts = mpf.makePosts(150);
         User testee=cfPosts.get(0).getAuthor();
         for (Post post : posts) {
-            //user.follow();
             testee.followUser(post.getAuthor());
             if(i>cfPosts.size()*2/3){
                 break;
