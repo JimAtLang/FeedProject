@@ -16,6 +16,9 @@ public class App {
                 break;
             }
         }
+        FeedBuilder cf= new FeedBuilder();
+        Feed f=cf.customFeed(testee);
+        f.showFeed();
     }
 
     public static void main(String[] args) throws Exception {
