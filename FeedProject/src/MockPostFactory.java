@@ -94,7 +94,7 @@ public class MockPostFactory {
         // Get the current date and time
         LocalDateTime startTime = LocalDateTime.now().minusDays(daysBeforeNow);
         // Generate a random number of seconds from now to five days from now
-        long secondsInDayRange = dayRange * 24 * 60 * 60; // 5 days in seconds
+        long secondsInDayRange = 3 * 24 * 60 * 60; // 5 days in seconds
         long randomSeconds = random.nextLong(0, secondsInDayRange);
 
         // Add the random seconds to the current date and time
